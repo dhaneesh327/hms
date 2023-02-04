@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+    <a href="#" class="navbar-brand p-0">
+        <h1 class="m-0 text-primary"><i class="fa-regular fa-hospital me-2"></i>HMS</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+            <a href="{% url 'core:home' %}" class="nav-item nav-link active" style="color:white;">Home</a>
+            <a href="{% url 'core:signup' %}" class="nav-item nav-link" style="color:white;">Signup</a>
+            <a href="{% url 'core:login' %}" class="nav-item nav-link" style="color:white;">Login</a>
+            <a href="{% url 'core:about' %}" class="nav-item nav-link" style="color:white;">About</a>
+            <a href="{% url 'core:contact' %}" class="nav-item nav-link" style="color:white;">Contact</a>
+        </div>
+        <a href="{% url 'clinic:appointment_list' %}" class="btn btn-primary py-2 px-4 ms-3">Appointment</a>
+    </div>
+  </nav>
