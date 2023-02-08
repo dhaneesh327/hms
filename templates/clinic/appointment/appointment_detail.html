@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card card-body shadow">
+        <img
+          src="#"
+          alt=""
+          class=""
+        />
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <table class="table table-borderless table-hover align-middle">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{{appointment.name}}</td>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <td>{{appointment.phone_number}}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{appointment.email}}</td>
+          </tr>
+          <tr>
+            <th>Doctor</th>
+            <td>{{appointment.doctor}}</td>
+          </tr>
+          <tr>
+            <th>Date</th>
+            <td>{{appointment.appointment_date}}</td>
+          </tr>
+          <tr>
+            <th>Reason</th>
+            <td>{{appointment.reason}}</td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td>{{appointment.status}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="d-flex align-items-center gap-3">
+                <form method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="appointment_id" value="{{appointment.id}}" />
+                  <input type="hidden" name="quantity" value="1" />
+                  <button type="submit" class="btn btn-primary">Add To Appointment List</button>
+                </form>
+                <a href="{% url 'clinic:appointment_update' appointment.id %}" class="btn btn-secondary">Edit</a>
+                <a href="{% url 'clinic:appointment_delete' appointment.id %}" class="btn btn-danger">Delete</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

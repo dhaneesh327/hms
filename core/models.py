@@ -30,10 +30,22 @@ class AddressModel(TimeStampedModel):
         LocationModel, on_delete=models.SET_NULL, blank=True, null=True
     )       
 
+class HospitalModel(TimeStampedModel):
+    name=models.CharField(max_length=55)
+    phone_number = models.CharField(max_length=255)
+    email = models.EmailField()
+    address = models.ForeignKey(AddressModel, on_delete=models.CASCADE) 
+
+    def __str__(self):
+        return self.name
+
 class ProfileModel(TimeStampedModel):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     phone_number=models.CharField(max_length=16)
-    address=models.ForeignKey(AddressModel,on_delete=models.CASCADE)
+    address=models.ForeignKey(AddressModel,on_delete=models.CASCADE)    
+
+    def __str__(self):
+        return self.user
 
 class ContactModel(models.Model):
     name = models.CharField(max_length=30)
@@ -42,3 +54,6 @@ class ContactModel(models.Model):
     message = models.TextField()
     subject = models.CharField(max_length=255)
     is_replied = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name

@@ -1,0 +1,54 @@
+{% extends "index.html" %} {% block content %}
+<div class="container">
+  <div class="row row-cols-lg-3 g-3">
+    {% for patient in patients %}
+    <div class="col">
+      <div class="card card-body">
+        <h5 class="card-title">{{patient.name}}</h5>
+        <p class="card-text">{{patient.age}}</p>
+        <p class="card-text">{{patient.date_of_birth}}</p>
+        <p class="card-text">{{patient.gender}}</p>
+        <p class="card-text">{{patient.blood_group}}</p>
+        <p class="card_text">{{patient.address}}</p>
+        <p class="card_text">{{patient.patient_type}}</p>
+        <p class="card_text">{{patient.admit_date}}</p>
+        <div>
+          <form action="{% url 'clinic:patient_create' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="patient_id" value="{{patient.id}}" />
+            <input type="hidden" name="quantity" value="1" />
+
+            <div class="d-flex align-items-center gap-3">
+              <button type="submit" class="btn btn-primary text-nowrap">Add Patient</button>
+              <a
+                href="{% url 'clinic:patient_detail' patient.id %}"
+                class="btn btn-secondary"
+                >Detail</a
+              >
+              {% if user.is_superuser %}
+              <a
+                href="{% url 'clinic:patient_update' patient.id %}"
+                class="btn btn-secondary"
+                >Edit</a
+              >
+              <a
+                href="{% url 'clinic:patient_delete' patient.id %}"
+                class="btn btn-danger"
+                >Delete</a
+              >
+              {% endif %}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col">
+      <div class="card card-body">
+        <p class="card-text">Patient Not Found!!</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -29,25 +29,59 @@ class AppointmentDeleteView(views.DeleteView):
     model = core_models.AppointmentModel
     
 
+
+
+# Doctor view
+
+class DoctorBaseView(views.TemplateView):
+    template_name = "clinic/doctor/doctor_base.html"
+    model = core_models.DoctorModel
+    form_class = core_forms.DoctorForm
+
+class DoctorDashboardView(views.TemplateView):
+    template_name = "clinic/doctor/doctor_dashboard.html"
+    model = core_models.DoctorModel
+
+class DoctorPatientView(views.TemplateView):
+    template_name = "clinic/doctor/doctor_patient.html"
+    model = core_models.DoctorModel
+
+class DoctorAppointmentView(views.TemplateView):
+    template_name = "clinic/doctor/doctor_appointment.html"
+    model = core_models.DoctorModel
+
+class DoctorViewAppointmentView(views.TemplateView):
+    template_name = "clinic/doctor/doctor_appointment.html"
+    model = core_models.DoctorModel
+
+class DoctorDeleteAppointmentView(views.DeleteView):
+    template_name = "clinic/doctor/doctor_appointment.html"
+    model = core_models.DoctorModel
+    
+
+
+
+
 # Patient view
 
-class PatientProfileView(views.View):
-    template_name = "clinic/patient/patient_profile.html"
+class PatientListView(views.ListView):
+    template_name = "clinic/patient/patient_list.html"
+    model = core_models.PatientModel
+
+class PatientCreateView(views.CreateView):
+    template_name = "clinic/patient/patient_create.html"
     model = core_models.PatientModel
     form_class = core_forms.PatientForm
 
-# precription view
+class PatientDetailView(views.DetailView):
+    template_name = "clinic/patient/patient_detail.html"
+    model = core_models.PatientModel
 
-class AddPrescriptionView(views.View):
-    template_name = "clinic/prescription/add_prescription.html"
-    model = core_models.PrescriptionModel
-    form_class = core_forms.PrescriptionForm
+class PatientUpdateView(views.UpdateView):
+    template_name = "clinic/patient/patient_update.html"
+    model = core_models.PatientModel
+    form_class = core_forms.PatientForm
 
-class ShowPrescriptionView(views.View):
-    template_name = "clinic/prescription/show_prescription.html"
-    model = core_models.PrescriptionModel
-    form_class = core_forms.PrescriptionForm
-
-class MedicalHistoryView(views.View):
-    template_name = "clinic/prescription/medical_history.html"
-    model = core_models.PrescriptionModel
+class PatientDeleteView(views.DeleteView):
+    template_name = "clinic/patient/patient_delete.html"
+    model = core_models.PatientModel

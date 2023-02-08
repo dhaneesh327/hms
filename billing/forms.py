@@ -5,30 +5,11 @@ class BillingForm(forms.ModelForm):
     class Meta:
         model = billing_models.BillingModel
         fields = [
+            "patient",
+            "insurance_details",
             "room_charge",
             "medicine_cost",
             "doctor_fee",
-            "other_charge",
-            "total",
-            "date",
+            "other_charges",
         ]
-
-class InsuranceForm(forms.ModelForm):
-    class Meta:
-        model = billing_models.InsuranceModel
-        fields = [
-            "patient",
-            "company_name",
-            "policy_number",
-            "expiry_date",
-            "coverage",
-        ]
-
-class DischargeForm(forms.ModelForm):
-    class Meta:
-        model = billing_models.DischargeModel
-        fields = [
-            "patient",
-            "date",
-            "condition",
-        ]      
+           

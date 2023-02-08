@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+        <h6 class="container-title">Your Discharged Patient List</h6>
+    </div>
+    <div class="col-lg-6">
+      <table class="table table-borderless table-hover align-middle">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{{appointment.name}}</td>
+          </tr>
+          <tr>
+            <th>Admit Date</th>
+            <td>{{appointment.admit_date}}</td>
+          </tr>
+          <tr>
+            <th>Release Date</th>
+            <td>{{appointment.release_date}}</td>
+          </tr>
+          <tr>
+            <th>Symptoms</th>
+            <td>{{appointment.symptoms}}</td>
+          </tr>
+          <tr>
+            <th>Phone Number</th>
+            <td>{{appointment.phone_number}}</td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td>{{appointment.address}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "index.html" %} {% block content %}
+<table style="text-align: center">
+  <tr>
+    <th>patient</th>
+    <th>toatl</th>
+    <th>Date</th>
+  </tr>
+  {% for billing in billings %}
+    <form method="POST" action="{% url 'show' %}">
+      {%csrf_token%}
+      <input type="hidden" value="{{ payt.pmid }}" name="pid" />
+      <th>
+        <button type="submit" style="padding: 10px; font-size: 14px">
+          Show payment
+        </button>
+      </th>
+    </form>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
+
+{% extends "index.html" %} {% block content %}
+<div class="container">
+  <div class="row row-cols-lg-3 g-3">
+    {% for billing in billing %}
+    <div class="col">
+      <div class="card card-body">
+        <h5 class="card-title">{{billing.patient}}</h5>
+        <p class="card-text">{{billing.total}}</p>
+        <p class="card-text">{{billing.date}}</p>
+        <div>
+          <form action="{% url 'billing:billing' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="billing_id" value="{{billing.id}}" />
+            <input type="hidden" name="quantity" value="1" />
+
+            <div class="d-flex align-items-center gap-3">
+              <button type="submit" class="btn btn-primary text-nowrap">Payment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

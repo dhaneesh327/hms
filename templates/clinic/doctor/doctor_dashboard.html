@@ -1,0 +1,26 @@
+{% extends "index.html" %} {% block content %}
+<div class="container-fluid banner mb-5">
+    <div class="container">
+        <div class="row gx-0">
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+                <div class="bg-primary d-flex flex-column p-5" style="height: 150px;">
+                    <h3>{{appointmentcount}}</h3>
+                    <h4>Appointments For You</h4>
+                </div>
+            </div>
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
+                <div class="bg-primary d-flex flex-column p-5" style="height: 150px;">
+                    <h3>{{patientcount}}</h3>
+                    <h4>Patient Under You</h4>
+                </div>
+            </div>
+            <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
+                <div class="bg-primary d-flex flex-column p-5" style="height: 150px;">
+                    <h3>{{patientdischarged}}</h3>
+                    <h4>Your Patient Discharged</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

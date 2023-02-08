@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card card-body shadow">
+        <img
+          src="#"
+          alt=""
+          class=""
+        />
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <table class="table table-borderless table-hover align-middle">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{{patient.name}}</td>
+          </tr>
+          <tr>
+            <th>Age</th>
+            <td>{{patient.age}}</td>
+          </tr>
+          <tr>
+            <th>Date Of Birth</th>
+            <td>{{patient.date_of_birth}}</td>
+          </tr>
+          <tr>
+            <th>Gender</th>
+            <td>{{patient.gender}}</td>
+          </tr>
+          <tr>
+            <th>Blood Group</th>
+            <td>{{patient.blood_group}}</td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td>{{patient.address}}</td>
+          </tr>
+          <tr>
+            <th>Patient Type</th>
+            <td>{{patient.patient_type}}</td>
+          </tr>
+          <tr>
+            <th>Admit Date</th>
+            <td>{{patient.admitdate}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="d-flex align-items-center gap-3">
+                <form method="post">
+                  {% csrf_token %}
+                  <input type="hidden" name="patient_id" value="{{patient.id}}" />
+                  <input type="hidden" name="quantity" value="1" />
+                  <button type="submit" class="btn btn-primary">Add Patient List</button>
+                </form>
+                <a href="{% url 'clinic:patient_update' patient.id %}" class="btn btn-secondary">Edit</a>
+                <a href="{% url 'clinic:patient_delete' patient.id %}" class="btn btn-danger">Delete</a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

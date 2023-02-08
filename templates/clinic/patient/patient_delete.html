@@ -1,0 +1,18 @@
+{% extends "index.html" %} {% block content %}
+<div class="container">
+  <div class="card" style="width: 28rem">
+    <div class="card body">
+      <h5 class="card title">Delete Appointment</h5>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Are you sure want to delete this patient detail</p>
+        <button class="btn btn-danger rounded-4 px-3 py-2">Delete</button>
+        <a
+          href="{% url 'clinic:patient_detail' patient.id %}"
+          class="btn btn-secondary"
+          >Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

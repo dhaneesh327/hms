@@ -12,6 +12,15 @@ class UserRegistrationForm(auth_forms.UserCreationForm):
         model = USER
         fields = ["username","email"]
 
+class HospitalForm(forms.ModelForm):
+    class Meta:
+        model = core_models.HospitalModel
+        fields = [
+            "name",
+            "phone_number",
+            "email",
+            "address",
+        ]
 
 class ProfileForm(forms.ModelForm):
     class Meta:

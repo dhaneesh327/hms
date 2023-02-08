@@ -1,0 +1,26 @@
+{% extends "index.html" %} {% block content %}
+<div class="container-fluid banner mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="bg-primary d-flex flex-column p-5">
+            <h3 style="padding-left: 150px;">
+              <a class="btn btn-light" href="{% url 'clinic:doctor_view_appointment' %}"
+                >View Your Appointment</a
+              >
+            </h3>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="bg-primary d-flex flex-column p-5">
+            <h3 style="padding-left: 150px;">
+              <a class="btn btn-light" href="{% url 'clinic:doctor_delete_appointment' %}"
+                >Delete Appointment</a
+              >
+            </h3>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

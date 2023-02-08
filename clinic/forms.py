@@ -1,32 +1,22 @@
 from django import forms
 from clinic import models as clinic_models
 
-class HospitalForm(forms.ModelForm):
-    class Meta:
-        model = clinic_models.HospitalModel
-        fields = [
-            "name",
-            "phone_number",
-            "email",
-            "address",
-        ]
-
 class DepartmentForm(forms.ModelForm):
     class Meta:
         model = clinic_models.DepartmentModel
         fields = [
-            "hospital",
-            "name",
+            "department_name",
         ]
 
 class DoctorForm(forms.ModelForm):
     class Meta:
         model = clinic_models.DoctorModel
         fields = [
-            "department",
+            "profile_pic",
             "name",
+            "department",
             "speciality",
-            "user",
+            "phone_number",
             "year_of_experience",
             "about",
         ]
@@ -40,39 +30,29 @@ class PatientForm(forms.ModelForm):
             "date_of_birth",
             "gender",
             "address",
+            "blood_group",
             "patient_type",
         ]        
 
-class StaffForm(forms.ModelForm):
-    class Meta:
-        model = clinic_models.StaffModel
-        fields = [
-            "department",
-            "name",
-            "speciality",
-            "user",
-            "year_of_experience",
-            "about",
-        ]
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = clinic_models.AppointmentModel
         fields = [
+            "name",
+            "phone_number",
+            "email",
             "doctor",
-            "patient",
             "appointment_date",
             "reason",
-            "fee",
             "status",
-            "patient_type",
         ]
-
 
 class PrescriptionForm(forms.ModelForm):
     class Meta:
         model = clinic_models.PrescriptionModel
         fields = [
+            "patient",
             "appointment",
             "medicine_name",
             "dosage",
@@ -88,3 +68,15 @@ class MedicalHistoryForm(forms.ModelForm):
             "treatment",
             "date",
         ]
+
+class DischargeForm(forms.ModelForm):
+    class Meta:
+        model = clinic_models.DischargeModel
+        fields = [
+            "patient",
+            "admit_date",
+            "release_date",
+            "symptoms",
+            "phone_number",
+            "address",
+        ] 

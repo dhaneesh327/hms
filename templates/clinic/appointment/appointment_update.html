@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="container">
+    <div class="card" style="width: 28rem">
+        <div class="card body">
+            <h5 class="card title">Update Appointment</h5>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %} {{form.as_p}}
+                <button class="btn btn-dark rounded-4 px-3 py-2">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

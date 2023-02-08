@@ -31,12 +31,12 @@
           </div>
           <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
               <div class="bg-primary d-flex flex-column p-5" style="height: 150px;">
-                  <h3 style="padding-left:110px;"><a class="btn btn-light" href="#">Patient</a></h3>
+                  <h3 style="padding-left:110px;"><a class="btn btn-light" href="{% url 'clinic:patient_create' %}">Patient</a></h3>
               </div>
           </div>
           <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
               <div class="bg-primary d-flex flex-column p-5" style="height: 150px;">
-                <h3 style="padding-left:110px;"><a class="btn btn-light" href="#">Doctor</a></h3>
+                <h3 style="padding-left:110px;"><a class="btn btn-light" href="{% url 'clinic:doctor_base' %}">Doctor</a></h3>
               </div>
           </div>
       </div>
