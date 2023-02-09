@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("",include("core.urls",namespace="core")),
-    path("clinic/",include("clinic.urls",namespace="clinic")),
-    path("mails/",include("mails.urls",namespace="mails")),
-    path("billing/",include("billing.urls",namespace="billing")),
+    path("", include("core.urls", namespace="core")),
+    path("clinic/", include("clinic.urls", namespace="clinic")),
+    path("mails/", include("mails.urls", namespace="mails")),
+    path("billing/", include("billing.urls", namespace="billing")),
+    path("accounts/", include("accounts.urls", namespace="accounts")),
+    # admin
+    path("admin/", admin.site.urls),
 ]
 
-urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
-urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

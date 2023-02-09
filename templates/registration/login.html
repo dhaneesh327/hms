@@ -1,0 +1,36 @@
+{% extends "index.html" %} {% load static %} {% block content %}
+<div class="container-fluid p-0">
+  <div class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="w-100" src="{% static 'image/hms_1.jpg' %}" alt="Image" />
+        <div
+          class="carousel-caption"
+        >
+          <div
+            class="d-flex flex-column justify-content-center align-items-center p-3 h-100"
+          >
+            <h5
+              class="card-title"
+              style="
+                text-align: center;
+                font-size: 60px;
+                color: black;
+                padding-bottom: 50px;
+              "
+            >
+              Login
+            </h5>
+            <form class="django-form" method="POST">
+              {% csrf_token %} {{form.as_p}}
+              <div class="center">
+                <button class="btn btn-dark rounded-4 px-3 py-2">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

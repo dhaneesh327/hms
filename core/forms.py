@@ -22,14 +22,6 @@ class HospitalForm(forms.ModelForm):
             "address",
         ]
 
-class ProfileForm(forms.ModelForm):
-    class Meta:
-        model = core_models.ProfileModel
-        fields = [
-            "user",
-            "phone_number",
-            "address",
-        ]
 
 # contact form
 class ContactForm(forms.ModelForm):

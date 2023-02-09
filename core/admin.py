@@ -1,10 +1,9 @@
 from django.contrib import admin
-from core import models as core_models
+from core import models
 
 # Register your models here.
 
-admin.site.register(core_models.LocationModel)
-admin.site.register(core_models.AddressModel)
-admin.site.register(core_models.HospitalModel)
-admin.site.register(core_models.ProfileModel)
-admin.site.register(core_models.ContactModel)
+admin.site.register(models.LocationModel)
+admin.site.register(models.AddressModel)
+admin.site.register(models.HospitalModel)
+admin.site.register(models.ContactModel)

@@ -39,13 +39,6 @@ class HospitalModel(TimeStampedModel):
     def __str__(self):
         return self.name
 
-class ProfileModel(TimeStampedModel):
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
-    phone_number=models.CharField(max_length=16)
-    address=models.ForeignKey(AddressModel,on_delete=models.CASCADE)    
-
-    def __str__(self):
-        return self.user
 
 class ContactModel(models.Model):
     name = models.CharField(max_length=30)

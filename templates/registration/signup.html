@@ -1,0 +1,23 @@
+{% extends "index.html" %} {% load static %} {% block content %}
+<div class="container-fluid p-0">
+  <div class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="w-100" src="{% static 'image/hms_1.jpg' %}" alt="Image" />
+        <div class="carousel-caption">
+          <h1 class="h1 text-dark">Signup</h1>
+
+          <div class="d-flex justify-content-center">
+            <form class="" method="POST">
+              {% csrf_token %} {{form.as_p}}
+              <div class="center">
+                <button class="btn btn-dark rounded-4 px-3 py-2">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
